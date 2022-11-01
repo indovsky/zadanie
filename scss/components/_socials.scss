@@ -1,0 +1,26 @@
+.socials-list {
+    display: flex;
+    gap: 15px;
+
+    &__item {
+        &__link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 43px;
+            width: 43px;
+            background-color: var(--bs-primary);
+            border-radius: 100%;
+            
+            &:hover {
+                background-color: lighten($primary, 10);
+            }
+        }
+
+        &__icon {
+            width: 18px;
+            height: 18px;
+            fill: #fff;
+        }
+    }
+}

@@ -1,0 +1,53 @@
+.site-footer {
+    background-color: var(--bs-body-color);
+    color: #fff;
+    padding-top: 65px;
+
+    &__divider {
+        color: #fff;
+        height: 1px;
+        opacity: 1;
+        margin: 65px 0 0;
+    }
+
+    &__brand {
+        font-size: 2.1875rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: #fff;
+    }
+
+    &__col {
+        &__title {
+            font-size: 1.125rem;
+            text-transform: uppercase;
+            color: var(--bs-primary);
+            margin-bottom: 15px;
+        }
+
+        &__list__item__link {
+            color: #fff;
+            transition: color .15s ease;
+
+            &:hover {
+                color: var(--bs-primary);
+            }
+        }
+
+        .btn {
+            margin-top: 40px;
+        }
+    }
+
+    &__copyrights {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 28px 0;
+        gap: 15px;
+    }
+
+    .socials-list {
+        margin-top: 40px;
+    }
+}

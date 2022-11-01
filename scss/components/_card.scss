@@ -1,0 +1,173 @@
+.card {
+    background-color: var(--bs-gray);
+    border-radius: $border-radius;
+    border-top: 10px solid var(--bs-primary);
+    box-shadow: 2px 3px 10px #00000029;
+    transition: box-shadow .15s ease;
+
+    &:hover {
+        box-shadow: 2px 3px 10px #00000059;
+
+        .card__header__icon-container::after {
+            transform: rotate(-180deg);
+        }
+    }
+
+    &__header {
+        padding: 75px 34px 30px 34px;
+
+        &--is-centered {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        &__icon-container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 125px; // fallback
+            height: clamp(85px, 30vw, 125px);
+            width: 125px; // fallback
+            width: clamp(85px, 30vw, 125px);
+
+            &::after {
+                content: '';
+                background-image: url('/images/card-circle.svg');
+                background-size: 100%;
+                background-repeat: no-repeat;
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                left: 0;
+                top: 0;
+                transition: transform .3s ease-in-out;
+            }
+        }
+    }
+    
+    &__title {
+        font-size: 1.5625rem;
+        font-weight: bold;
+        margin: 0;
+        padding: 0 34px;
+
+        &--is-centered {
+            text-align: center;
+        }
+    }
+
+    &__body {
+        padding: 35px 34px 75px;
+
+        &--is-centered {
+            text-align: center;
+        }
+    }
+
+    &__desc {
+        p:last-child {
+            margin: 0;
+        }
+    }
+
+    .btn {
+        margin-top: 45px;
+    }
+}
+
+.cards-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 17px;
+
+    @include media-breakpoint-down(lg) {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        -ms-scroll-snap-type: x mandatory;
+        scroll-snap-type: x mandatory;
+    }
+
+    @include media-breakpoint-up(fullhd) {
+        flex-wrap: nowrap;
+    }
+
+    .card {
+        display: flex;
+        flex-direction: column;
+        flex: 0 0 95%;
+        scroll-snap-align: center;
+
+        @include media-breakpoint-up(sm) {
+            flex: 0 0 90%;
+        }
+
+        @include media-breakpoint-up(lg) {
+            flex: 1 0 100%;
+        }
+    }
+}
+
+// Offer cards
+.offer-cards {
+    .card {
+        @include media-breakpoint-up(xl) {
+            flex: 1 0 398px;
+        }
+
+        @include media-breakpoint-up(xxl) {
+            flex: 0 0 24%;
+        }
+
+        @include media-breakpoint-up(fullhd) {
+            flex: 1;
+        }
+
+        &__body {
+            display: flex;
+            justify-content: space-between;
+            flex: 1 1 auto;
+            flex-direction: column;
+        }
+
+        .btn {
+            align-self: center;
+            // margin-top: auto;
+        }
+    }
+}
+
+// Post card
+.posts-cards {
+    .card {
+        color: var(--bs-body-color);
+
+        @include media-breakpoint-up(lg) {
+            flex: 1;
+        }
+
+        &__header {
+            padding: 0;
+
+            &__thumbnail {
+                width: 100%;
+                object-fit: cover;
+                border-top-left-radius: $border-radius;
+                border-top-right-radius: $border-radius;
+            }
+        }
+
+        &__body {
+            padding: 40px 30px;
+        }
+
+        &__title {
+            font-size: 18px;
+            padding: 0;
+            margin-bottom: 10px;
+        }
+    }
+}
